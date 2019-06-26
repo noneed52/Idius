@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/googleMap">
+    <fragment
+        android:id="@+id/googleMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:label="@string/google_map"
+        app:mapType="normal"
+        app:uiCompass="false"
+        app:uiRotateGestures="false"
+        app:uiScrollGestures="true"
+        app:uiTiltGestures="false"
+        app:uiZoomControls="true"
+        app:uiZoomGestures="true">
+        <action
+            android:id="@+id/showBusInfo"
+            app:destination="@+id/busInfo"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/busInfo"
+        android:name="com.example.myapplication.ui.fragment.BusInfoFragment"
+        tools:layout="@layout/fragment_bus_route_info">
+        <argument
+            android:name="flowStepNumber"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
