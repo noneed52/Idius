@@ -3,11 +3,10 @@ package com.example.busstation.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.busstation.base.BaseViewHolder
+import com.example.busstation.model.BusInfo
+import com.example.busstation.ui.viewholder.BusInfoViewHolder
+import com.example.busstation.viewmodel.BusViewModel
 import com.example.myapplication.databinding.LayoutBusInfoItemBinding
-import com.example.myapplication.model.BusInfo
-import com.example.myapplication.ui.viewholder.BusInfoViewHolder
-import com.example.myapplication.viewmodel.BusViewModel
 
 /**
  * @file BusInfoListAdapter.kt

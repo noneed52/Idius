@@ -3,9 +3,9 @@ package com.example.busstation.ui.viewholder
 import android.view.View.GONE
 import com.example.myapplication.R
 import com.example.busstation.base.BaseViewHolder
+import com.example.busstation.model.BusInfo
+import com.example.busstation.viewmodel.BusViewModel
 import com.example.myapplication.databinding.LayoutBusInfoItemBinding
-import com.example.myapplication.model.BusInfo
-import com.example.myapplication.viewmodel.BusViewModel
 import com.jakewharton.rxbinding2.view.clicks
 import io.reactivex.rxkotlin.addTo
 import java.util.concurrent.TimeUnit
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 
 class BusInfoViewHolder(private val binding: LayoutBusInfoItemBinding,
                         private val busInfoList: ArrayList<BusInfo>,
-                        private val busViewModel: BusViewModel): com.example.busstation.base.BaseViewHolder(binding.root) {
+                        private val busViewModel: BusViewModel): BaseViewHolder(binding.root) {
 
     override fun onBindViewHolder(position: Int) {
         binding.run {

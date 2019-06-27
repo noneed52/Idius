@@ -1,11 +1,9 @@
 package com.example.busstation.network
 
-import com.example.busstation.constants.ApiAddress
-import com.example.busstation.constants.ApiKeys
-import com.example.myapplication.model.BusInfoResponse
-import com.example.myapplication.model.BusRouteInfoResponse
-import com.example.myapplication.model.BusStationAroundResponse
-import com.example.myapplication.model.BusStationArrivalInfoResponse
+import com.example.busstation.model.BusInfoResponse
+import com.example.busstation.model.BusRouteInfoResponse
+import com.example.busstation.model.BusStationAroundResponse
+import com.example.busstation.model.BusStationArrivalInfoResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

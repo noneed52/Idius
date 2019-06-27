@@ -3,7 +3,7 @@ package com.example.busstation.base
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.example.myapplication.network.ApiClient
+import com.example.busstation.network.ApiClient
 import io.reactivex.disposables.CompositeDisposable
 
 /**

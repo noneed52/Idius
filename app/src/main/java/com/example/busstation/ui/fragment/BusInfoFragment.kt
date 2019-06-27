@@ -4,11 +4,10 @@ package com.example.busstation.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.busstation.ui.adapter.BusRouteListAdapter
+import com.example.busstation.viewmodel.BusViewModel
 import com.example.myapplication.R
-import com.example.busstation.base.BaseFragment
 import com.example.myapplication.databinding.FragmentBusRouteInfoBinding
-import com.example.myapplication.ui.adapter.BusRouteListAdapter
-import com.example.myapplication.viewmodel.BusViewModel
 
 class BusInfoFragment : com.example.busstation.base.BaseFragment<FragmentBusRouteInfoBinding>() {
 
@@ -16,7 +15,7 @@ class BusInfoFragment : com.example.busstation.base.BaseFragment<FragmentBusRout
 
     private val busViewModel by lazy {
         getAttachedActivity()?.let {
-            it.getViewModel { BusViewModel(it)}
+            it.getViewModel { BusViewModel(it) }
         }
     }
 

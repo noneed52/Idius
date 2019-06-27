@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.busstation.ui.adapter.BusInfoListAdapter
+import com.example.busstation.viewmodel.BusViewModel
 import com.example.myapplication.databinding.LayoutBusStationInfoListBinding
-import com.example.myapplication.ui.adapter.BusInfoListAdapter
-import com.example.myapplication.viewmodel.BusViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.jakewharton.rxbinding2.view.clicks
 import io.reactivex.rxkotlin.addTo

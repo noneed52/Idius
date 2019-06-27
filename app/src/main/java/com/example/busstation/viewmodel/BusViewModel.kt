@@ -1,13 +1,11 @@
 package com.example.busstation.viewmodel
 
 import androidx.databinding.ObservableArrayList
-import com.example.busstation.base.BaseActivity
-import com.example.busstation.base.BaseViewModel
-import com.example.myapplication.model.*
-import com.example.myapplication.network.BusStationInfoService
-import com.example.myapplication.ui.activity.MapsActivity.Companion.BUS_ARRIVAL_INFO_COMPLETE
-import com.example.myapplication.ui.activity.MapsActivity.Companion.BUS_ROUTE_INFO
-import com.example.myapplication.ui.activity.MapsActivity.Companion.BUS_STATION_AROUND_COMPLETE
+import com.example.busstation.model.*
+import com.example.busstation.network.BusStationInfoService
+import com.example.busstation.ui.activity.MapsActivity.Companion.BUS_ARRIVAL_INFO_COMPLETE
+import com.example.busstation.ui.activity.MapsActivity.Companion.BUS_ROUTE_INFO
+import com.example.busstation.ui.activity.MapsActivity.Companion.BUS_STATION_AROUND_COMPLETE
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -33,7 +31,9 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
     val busRouteList by lazy { ObservableArrayList<BusRoute>() }
 
     /**
-     *
+     * Request bus stations around the location
+     * @param x: latitude
+     * @param y: longitude
      */
     fun requestBusStationList(latitude: Double, longitude: Double) {
         apiService.getBusStationList(longitude.toString(), latitude.toString())
@@ -46,7 +46,7 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
     }
 
     /**
-     *
+     * Parse result of the bus station around the location
      */
     private fun parseBusStationList(busStationAroundResponse: BusStationAroundResponse) {
         busStationAroundResponse.run {
@@ -60,6 +60,10 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
         }
     }
 
+    /**
+     * Get list of buses arriving at station
+     * @param markerTitle: bus station name
+     */
     fun getBusStationInfo(markerTitle: String) {
         busStationAroundInfoList?.first {
             it.stationName == markerTitle
@@ -71,6 +75,11 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
         }
     }
 
+    /**
+     * Request list of buses arriving at station
+     * @param busStation: bus station info
+     * @param requestCompleteCallback: request complete callback action
+     */
     private fun requestBusStationInfo(busStation: BusStationAround?, requestCompleteCallback: Action? = null) {
         busStation?.let {
             apiService.getBusStationArrivalInfo(it.stationId)
@@ -91,6 +100,10 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
         }
     }
 
+    /**
+     * Parse list of buses arriving at station info
+     * @param busStationArrivalInfoResponse: arriving bus information at station
+     */
     private fun parseBusStationInfo(busStationArrivalInfoResponse: BusStationArrivalInfoResponse): Single<List<BusStationArrival>?> {
         return busStationArrivalInfoResponse.run {
             if (comMsgHeader.returnCode == "00") {
@@ -103,6 +116,10 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
         }
     }
 
+    /**
+     * Request bus information according to route id
+     * @param busStationArrivalList: arriving bus list at station
+     */
     private fun requestBusInfo(busStationArrivalList: List<BusStationArrival>?): Observable<BusInfoResponse> {
         this.busStationArrivalList = busStationArrivalList
         return busStationArrivalList?.let { busStationList ->
@@ -113,6 +130,10 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
         }?: Observable.error<BusInfoResponse>(Throwable("BUS_INFO_ERROR"))
     }
 
+    /**
+     * Parse bus information
+     * @param busInfoResponse: bus information
+     */
     private fun parseBusInfo(busInfoResponse: BusInfoResponse) {
         busInfoResponse.run {
             if (comMsgHeader.returnCode == "00") {
@@ -128,10 +149,18 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
         }
     }
 
+    /**
+     * Refresh bus arrival info
+     * @param unit: Void parameter
+     */
     fun refreshBusArrivalInfo(unit: Unit) {
         requestBusStationInfo(selectedBusStation)
     }
 
+    /**
+     * Request bus route station list using route id
+     * @param busInfo: bus information
+     */
     fun requestBusRouteInfo(busInfo: BusInfo) {
         selectedBusInfo = busInfo
         activityCallback.postValue(BUS_ROUTE_INFO)
@@ -145,6 +174,10 @@ class BusViewModel(private val activity: com.example.busstation.base.BaseActivit
             .addTo(compositeDisposable)
     }
 
+    /**
+     * Parse bus route station list
+     * @param busRouteInfoResponse: bus route list response
+     */
     private fun parseBusRouteInfo(busRouteInfoResponse: BusRouteInfoResponse) {
         busRouteInfoResponse.run {
             if(comMsgHeader.returnCode == "00") {

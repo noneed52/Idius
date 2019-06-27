@@ -6,12 +6,11 @@ import android.location.Location
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
+import com.example.busstation.ui.dialog.BusStationArrivalInfoDialog
+import com.example.busstation.ui.fragment.BusInfoFragment
 import com.example.myapplication.R
-import com.example.busstation.base.BaseActivity
+import com.example.busstation.viewmodel.BusViewModel
 import com.example.myapplication.databinding.ActivityMapsBinding
-import com.example.myapplication.ui.dialog.BusStationArrivalInfoDialog
-import com.example.myapplication.ui.fragment.BusInfoFragment
-import com.example.myapplication.viewmodel.BusViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory

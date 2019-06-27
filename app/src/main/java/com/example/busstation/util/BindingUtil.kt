@@ -5,10 +5,10 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableArrayList
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.model.BusInfo
-import com.example.myapplication.model.BusRoute
-import com.example.myapplication.ui.adapter.BusInfoListAdapter
-import com.example.myapplication.ui.adapter.BusRouteListAdapter
+import com.example.busstation.model.BusInfo
+import com.example.busstation.model.BusRoute
+import com.example.busstation.ui.adapter.BusInfoListAdapter
+import com.example.busstation.ui.adapter.BusRouteListAdapter
 
 object BindingUtil {
 

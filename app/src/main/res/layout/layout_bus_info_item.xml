@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools">
     <data>
-        <import type="com.example.myapplication.model.BusInfo" />
-        <import type="com.example.myapplication.model.BusStationArrival" />
+        <import type="com.example.busstation.model.BusInfo" />
+        <import type="com.example.busstation.model.BusStationArrival" />
         <variable
             name="busInfo"
             type="BusInfo" />
