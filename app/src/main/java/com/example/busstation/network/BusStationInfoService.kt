@@ -1,5 +1,6 @@
 package com.example.busstation.network
 
+import com.example.busstation.constants.ApiKeys
 import com.example.busstation.model.BusInfoResponse
 import com.example.busstation.model.BusRouteInfoResponse
 import com.example.busstation.model.BusStationAroundResponse
@@ -20,7 +21,7 @@ interface BusStationInfoService {
     fun getBusStationList(
         @Query("x") x: String,
         @Query("y") y: String,
-        @Query("serviceKey", encoded = true) serviceKey: String = com.example.busstation.constants.ApiKeys.BUS_STATION_API_KEY
+        @Query("serviceKey", encoded = true) serviceKey: String = ApiKeys.BUS_STATION_API_KEY
     ): Single<BusStationAroundResponse>
 
     /**
@@ -31,7 +32,7 @@ interface BusStationInfoService {
     @GET(com.example.busstation.constants.ApiAddress.BUS_STATION_ARRIVAL_TIME_ALL)
     fun getBusStationArrivalInfo(
         @Query("stationId") stationId: String,
-        @Query("serviceKey", encoded = true) serviceKey: String = com.example.busstation.constants.ApiKeys.BUS_ARRIVAL_TIME_API_KEY
+        @Query("serviceKey", encoded = true) serviceKey: String = ApiKeys.BUS_ARRIVAL_TIME_API_KEY
     ): Single<BusStationArrivalInfoResponse>
 
     /**
@@ -42,7 +43,7 @@ interface BusStationInfoService {
     @GET(com.example.busstation.constants.ApiAddress.BUS_INFO)
     fun getBusInfo(
         @Query("routeId") routeId: String,
-        @Query("serviceKey", encoded = true) serviceKey: String = com.example.busstation.constants.ApiKeys.BUS_INFO_API_KEY
+        @Query("serviceKey", encoded = true) serviceKey: String = ApiKeys.BUS_INFO_API_KEY
     ): Single<BusInfoResponse>
 
     /**
@@ -53,6 +54,6 @@ interface BusStationInfoService {
     @GET(com.example.busstation.constants.ApiAddress.BUS_ROUTE_STATION_INFO)
     fun getBusRouteInfo(
         @Query("routeId") routeId: String,
-        @Query("serviceKey", encoded = true) serviceKey: String = com.example.busstation.constants.ApiKeys.BUS_INFO_API_KEY
+        @Query("serviceKey", encoded = true) serviceKey: String = ApiKeys.BUS_INFO_API_KEY
     ): Single<BusRouteInfoResponse>
 }

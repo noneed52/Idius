@@ -24,9 +24,9 @@ abstract class BaseFragment<T: ViewDataBinding>: Fragment() {
     /**
      * Get activity of the fragment is attached to
      */
-    fun getAttachedActivity(): com.example.busstation.base.BaseActivity<*>? {
+    fun getAttachedActivity(): BaseActivity<*>? {
         return activity?.let {
-            it as com.example.busstation.base.BaseActivity<*>
+            it as BaseActivity<*>
         }
     }
 }

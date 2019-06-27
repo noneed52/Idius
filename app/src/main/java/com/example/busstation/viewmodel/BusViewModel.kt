@@ -1,6 +1,7 @@
 package com.example.busstation.viewmodel
 
 import androidx.databinding.ObservableArrayList
+import com.example.busstation.base.BaseViewModel
 import com.example.busstation.model.*
 import com.example.busstation.network.BusStationInfoService
 import com.example.busstation.ui.activity.MapsActivity.Companion.BUS_ARRIVAL_INFO_COMPLETE
@@ -20,7 +21,7 @@ import io.reactivex.schedulers.Schedulers
  * @copyright GE Appliances, a Haier Company (Confidential). All rights reserved.
  */
 
-class BusViewModel(private val activity: com.example.busstation.base.BaseActivity<*>) : com.example.busstation.base.BaseViewModel(activity.application) {
+class BusViewModel(private val activity: com.example.busstation.base.BaseActivity<*>) : BaseViewModel(activity.application) {
 
     private val apiService = apiClient.create(BusStationInfoService::class.java)
     var busStationAroundInfoList: List<BusStationAround>? = null

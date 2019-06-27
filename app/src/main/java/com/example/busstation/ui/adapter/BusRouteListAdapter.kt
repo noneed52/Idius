@@ -3,6 +3,7 @@ package com.example.busstation.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.busstation.base.BaseViewHolder
 import com.example.busstation.model.BusRoute
 import com.example.busstation.ui.viewholder.BusRouteViewHolder
 import com.example.busstation.viewmodel.BusViewModel
@@ -15,11 +16,11 @@ import com.example.myapplication.databinding.LayoutBusRouteItemBinding
  * @copyright GE Appliances, a Haier Company (Confidential). All rights reserved.
  */
 
-class BusRouteListAdapter(private val busViewModel: BusViewModel): RecyclerView.Adapter<com.example.busstation.base.BaseViewHolder>() {
+class BusRouteListAdapter(private val busViewModel: BusViewModel): RecyclerView.Adapter<BaseViewHolder>() {
 
     private val busRouteList by lazy { ArrayList<BusRoute>() }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): com.example.busstation.base.BaseViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val binding = LayoutBusRouteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BusRouteViewHolder(binding, busRouteList, busViewModel)
     }
@@ -28,7 +29,7 @@ class BusRouteListAdapter(private val busViewModel: BusViewModel): RecyclerView.
         return busRouteList.size
     }
 
-    override fun onBindViewHolder(holder: com.example.busstation.base.BaseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.onBindViewHolder(position)
     }
 
