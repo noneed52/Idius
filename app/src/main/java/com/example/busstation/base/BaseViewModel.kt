@@ -6,9 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.busstation.network.ApiClient
 import io.reactivex.disposables.CompositeDisposable
 
-/**
- * 기본 뷰모델 설정
- */
 abstract class BaseViewModel(application: Application): AndroidViewModel(application) {
     /**
      * Rx disposable

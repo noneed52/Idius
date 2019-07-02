@@ -1,5 +1,6 @@
 package com.example.busstation.network
 
+import com.example.busstation.constants.ApiAddress
 import com.example.busstation.constants.ApiKeys
 import com.example.busstation.model.BusInfoResponse
 import com.example.busstation.model.BusRouteInfoResponse
@@ -17,7 +18,7 @@ interface BusStationInfoService {
      * @param y: latitude of the location
      * @param serviceKey: Api key
      */
-    @GET(com.example.busstation.constants.ApiAddress.BUS_STATION_LIST)
+    @GET(ApiAddress.BUS_STATION_LIST)
     fun getBusStationList(
         @Query("x") x: String,
         @Query("y") y: String,
@@ -29,7 +30,7 @@ interface BusStationInfoService {
      * @param stationId: station identity key
      * @param serviceKey: api key
      */
-    @GET(com.example.busstation.constants.ApiAddress.BUS_STATION_ARRIVAL_TIME_ALL)
+    @GET(ApiAddress.BUS_STATION_ARRIVAL_TIME_ALL)
     fun getBusStationArrivalInfo(
         @Query("stationId") stationId: String,
         @Query("serviceKey", encoded = true) serviceKey: String = ApiKeys.BUS_ARRIVAL_TIME_API_KEY
@@ -40,7 +41,7 @@ interface BusStationInfoService {
      * @param routeId: bus route key
      * @param serviceKey: api key
      */
-    @GET(com.example.busstation.constants.ApiAddress.BUS_INFO)
+    @GET(ApiAddress.BUS_INFO)
     fun getBusInfo(
         @Query("routeId") routeId: String,
         @Query("serviceKey", encoded = true) serviceKey: String = ApiKeys.BUS_INFO_API_KEY
@@ -51,7 +52,7 @@ interface BusStationInfoService {
      * @param routeId: bus route key
      * @param serviceKey: api key
      */
-    @GET(com.example.busstation.constants.ApiAddress.BUS_ROUTE_STATION_INFO)
+    @GET(ApiAddress.BUS_ROUTE_STATION_INFO)
     fun getBusRouteInfo(
         @Query("routeId") routeId: String,
         @Query("serviceKey", encoded = true) serviceKey: String = ApiKeys.BUS_INFO_API_KEY

@@ -9,7 +9,6 @@ package com.example.busstation.constants
 
 object ApiKeys {
     const val BUS_STATION_API_KEY = "nJ7%2BQagggrG0yFQ7F0XAfknbetWIO%2B9KiQkyB2fXXi3pINPTwnUoLrxq1%2BWBnJPfQ9ea0oYC7EZ6z2wF33pMig%3D%3D"
-    const val BUS_LOCATION_API_KEY = "nJ7%2BQagggrG0yFQ7F0XAfknbetWIO%2B9KiQkyB2fXXi3pINPTwnUoLrxq1%2BWBnJPfQ9ea0oYC7EZ6z2wF33pMig%3D%3D"
     const val BUS_ARRIVAL_TIME_API_KEY = "nJ7%2BQagggrG0yFQ7F0XAfknbetWIO%2B9KiQkyB2fXXi3pINPTwnUoLrxq1%2BWBnJPfQ9ea0oYC7EZ6z2wF33pMig%3D%3D"
     const val BUS_INFO_API_KEY = "nJ7%2BQagggrG0yFQ7F0XAfknbetWIO%2B9KiQkyB2fXXi3pINPTwnUoLrxq1%2BWBnJPfQ9ea0oYC7EZ6z2wF33pMig%3D%3D"
 }

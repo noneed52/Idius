@@ -3,7 +3,6 @@ package com.example.busstation.network
 import android.os.Build
 import android.util.Log
 import com.example.busstation.constants.ApiAddress
-import com.example.busstation.constants.ApiKeys
 import com.tickaroo.tikxml.retrofit.TikXmlConverterFactory
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
@@ -11,8 +10,6 @@ import okhttp3.TlsVersion
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.jaxb.JaxbConverterFactory
 import java.security.KeyStore
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -31,7 +28,7 @@ object ApiClient {
 
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
-                .baseUrl(com.example.busstation.constants.ApiAddress.BASE_URL)
+                .baseUrl(ApiAddress.BASE_URL)
                 .client(initOkHttp())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(TikXmlConverterFactory.create())

@@ -98,7 +98,7 @@ abstract class BaseActivity<T : ViewDataBinding>: AppCompatActivity() {
      * Create viewmodel and return the viewmodel
      * @return ViewModel
      */
-    inline fun <reified T : com.example.busstation.base.BaseViewModel> getViewModel(noinline creator: (() -> T)): T {
-        return ViewModelProviders.of(this, com.example.busstation.base.BaseViewModelFactory(creator)).get(T::class.java)
+    inline fun <reified T : BaseViewModel> getViewModel(noinline creator: (() -> T)): T {
+        return ViewModelProviders.of(this, BaseViewModelFactory(creator)).get(T::class.java)
     }
 }

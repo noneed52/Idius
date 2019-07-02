@@ -6,6 +6,7 @@ import android.location.Location
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
+import com.example.busstation.base.BaseActivity
 import com.example.busstation.ui.dialog.BusStationArrivalInfoDialog
 import com.example.busstation.ui.fragment.BusInfoFragment
 import com.example.myapplication.R
@@ -23,7 +24,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 import io.reactivex.rxkotlin.addTo
 
 
-class MapsActivity : com.example.busstation.base.BaseActivity<ActivityMapsBinding>(), GoogleMap.OnMarkerClickListener {
+class MapsActivity : BaseActivity<ActivityMapsBinding>(), GoogleMap.OnMarkerClickListener {
 
     override val layoutId: Int = R.layout.activity_maps
 
