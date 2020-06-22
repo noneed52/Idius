@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.idius.test.model.CityInfoResponse" />
+
+        <variable
+                name="weatherInfoList"
+                type="androidx.lifecycle.LiveData&lt;java.util.ArrayList&lt;CityInfoResponse&gt;&gt;" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+        <GridLayout
+                android:id="@+id/headerGv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/grey_dark"
+                android:numColumns="3"
+                android:orientation="horizontal"
+                android:rowCount="1"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+            <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@color/grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/local"
+                    android:textSize="15sp" />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_columnWeight="10"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@color/grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/today"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_columnWeight="10"
+                    android:layout_margin="1dp"
+                    android:background="@color/grey"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/tomorrow"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+        </GridLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/pullRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/weatherInfoRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
+                    app:bindWeatherInfoList="@{weatherInfoList}"
+                    app:layoutManager="LinearLayoutManager" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
